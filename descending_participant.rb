@@ -1,13 +1,13 @@
 require_relative 'participant'
 
-class LinearParticipant < Participant
-  def play(lower,upper=nil)
-    num=lower
+class DescendingParticipant < Participant
+  def play(lower=nil,upper)
+    num=upper
     @num_attempts+=1
     ## puts"num_attempts: #{@num_attempts}"
     while @oracle.is_this_the_number?(num)!=:correct && (@num_attempts <= @max_num_attempts) do
       # puts "#{__method__}:I guessed #{num}"
-      num+=1
+      num-=1
       @num_attempts+=1
       ## puts"num_attempts: #{@num_attempts}"
     end
