@@ -1,19 +1,24 @@
 require_relative "participant"
 
 class RandomParticipant < Participant
-  def play (lower,upper)
+
+  @lower
+  @upper
+
+  def init_attempt(lower,upper)
+    @lower=lower
+    @upper=upper
     num = Kernel.rand(lower..upper)
     @num_attempts+=1
-    while @oracle.is_this_the_number?(num)!=:correct && (@num_attempts <= @max_num_attempts) do
-      # puts "#{__method__}:I guessed #{num}"
-      num = Kernel.rand(lower..upper)
-      @num_attempts+=1
-    end
-    if (@num_attempts <= @max_num_attempts)
-      # puts "#{__method__}: Yippee, I guessed #{num} and won!"
-      :success
-    else
-      fail
-    end
+  end
+
+  def is_looping?
+    @oracle.is_this_the_number?(@num)!=:correct && (@num_attempts <= @max_num_attempts)
+  end
+
+  def do_move
+    # puts "#{__method__}:I guessed #{@num}"
+    @num = Kernel.rand(@lower..@upper)
+    @num_attempts+=1
   end
 end

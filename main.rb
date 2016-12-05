@@ -40,7 +40,7 @@ def run_game(strategy)
       total_num_failures += 1
     end
   end
-  puts "play #{strategy} took on average #{total_num_attempts/(NUM_OF_RUNS-total_num_failures)} attempts to succeed"
+  puts "#{strategy} took on average #{total_num_attempts/(NUM_OF_RUNS-total_num_failures)} attempts to succeed"
 end
 
 run_game(:play_random)
