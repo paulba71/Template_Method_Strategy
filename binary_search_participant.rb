@@ -1,6 +1,10 @@
 require_relative "participant"
 
 class BinarySearchParticipant < Participant
+
+
+  # This is an example of the code that I refactored...
+
 #  def play(lower, upper)
 #    num = (lower+upper)/2
 #    @num_attempts+=1
@@ -31,7 +35,6 @@ class BinarySearchParticipant < Participant
   end
 
   def do_move
-    # puts "#{__method__}:I guessed #{num}"
     if @result == :less_than
       upper = @num-1
     elsif @result == :greater_than

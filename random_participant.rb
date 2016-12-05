@@ -17,7 +17,6 @@ class RandomParticipant < Participant
   end
 
   def do_move
-    # puts "#{__method__}:I guessed #{@num}"
     @num = Kernel.rand(@lower..@upper)
     @num_attempts+=1
   end

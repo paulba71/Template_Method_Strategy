@@ -12,9 +12,7 @@ class DescendingParticipant < Participant
   end
 
   def do_move
-    # puts "#{__method__}:I guessed #{num}"
     @num-=1
     @num_attempts+=1
-    # puts"num_attempts: #{@num_attempts}"
   end
 end
