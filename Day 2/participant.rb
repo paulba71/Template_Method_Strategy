@@ -1,14 +1,19 @@
+require 'observer'
 
 require_relative 'oracle.rb'
 
 # Tries to guess the 'secret' number using several different strategies
 class Participant
-  attr_reader :num_attempts 
+
+  include Observable
+
+  attr_reader :num_attempts, :result
 
   def initialize(oracle, max_num_attempts:10)
     @oracle, @max_num_attempts = oracle, max_num_attempts
     @num_attempts = 0
     @num=0
+    @result=:fail
   end
   
   def reset
@@ -25,15 +30,24 @@ class Participant
     end
     if (@num_attempts <= @max_num_attempts)
       # puts "#{__method__}: Yippee, I guessed #{num} and won!"
+      register_result(:success)
       :success
     else
       fail
     end
   end
 
+  # This is the state change that the observer will observe
+  def register_result(result)
+    @result=result
+    changed
+    notify_observers(self)
+  end
+
   private
   def fail
     # puts "Boo hoo. I made #{@num_attempts} attempts and failed."
+    register_result(:fail)
     :fail
   end
 

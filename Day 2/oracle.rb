@@ -17,4 +17,8 @@ class Oracle
     end
   end
 
+  def steal_number
+    @secret_number
+  end
+
 end

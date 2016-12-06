@@ -1,6 +1,7 @@
 
 # Evaluate the performance of participants using different guessing strategies
 
+require_relative 'auditor'
 require_relative 'oracle.rb'
 require_relative 'participant.rb'
 require_relative 'random_participant'
@@ -8,6 +9,7 @@ require_relative 'linear_participant'
 require_relative 'smart_random_participant'
 require_relative 'binary_search_participant'
 require_relative 'descending_participant'
+require_relative 'cheating_participant'
 NUM_OF_RUNS = 8
 
 oracle = Oracle.new
@@ -28,7 +30,11 @@ def run_game(strategy)
       player = BinarySearchParticipant.new(oracle, max_num_attempts:NUM_OF_RUNS*5)
     when :play_descending
       player = DescendingParticipant.new(oracle, max_num_attempts:NUM_OF_RUNS*2)
+    when :play_cheater
+      player = CheatingParticipant.new(oracle, max_num_attempts:NUM_OF_RUNS*5)
   end
+  auditor=Auditor.new
+  player.add_observer(auditor)
   1.upto(NUM_OF_RUNS) do |i|
     oracle.secret_number = i
     player.reset
@@ -40,6 +46,7 @@ def run_game(strategy)
       total_num_failures += 1
     end
   end
+  auditor.report_out
   puts "#{strategy} took on average #{total_num_attempts/(NUM_OF_RUNS-total_num_failures)} attempts to succeed"
 end
 
@@ -48,4 +55,5 @@ run_game(:play_linear)
 run_game(:play_binary_search)
 run_game(:play_smart_random)
 run_game(:play_descending)
+run_game(:play_cheater)
 
