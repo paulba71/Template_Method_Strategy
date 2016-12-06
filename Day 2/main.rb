@@ -35,6 +35,9 @@ def run_game(strategy)
   end
   auditor=Auditor.new
   player.add_observer(auditor)
+  #player.add_observer do
+  #  puts "Observer code block"
+  #end
   1.upto(NUM_OF_RUNS) do |i|
     oracle.secret_number = i
     player.reset
