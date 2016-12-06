@@ -19,6 +19,7 @@ def run_game(strategy)
   # evaluate random strategy
   total_num_attempts = 0
   total_num_failures = 0
+  puts "Playing strategy #{strategy}"
   case strategy
     when :play_random
       player = RandomParticipant.new(oracle, max_num_attempts: NUM_OF_RUNS*2)
@@ -33,11 +34,8 @@ def run_game(strategy)
     when :play_cheater
       player = CheatingParticipant.new(oracle, max_num_attempts:NUM_OF_RUNS*5)
   end
-  auditor=Auditor.new
+  auditor=Auditor.new(NUM_OF_RUNS)
   player.add_observer(auditor)
-  #player.add_observer do
-  #  puts "Observer code block"
-  #end
   1.upto(NUM_OF_RUNS) do |i|
     oracle.secret_number = i
     player.reset
@@ -50,7 +48,6 @@ def run_game(strategy)
     end
   end
   auditor.report_out
-  puts "#{strategy} took on average #{total_num_attempts/(NUM_OF_RUNS-total_num_failures)} attempts to succeed"
 end
 
 run_game(:play_random)
