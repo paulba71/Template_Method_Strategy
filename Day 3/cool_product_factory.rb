@@ -1,6 +1,8 @@
 require_relative 'product_a'
 require_relative 'product_b'
 require_relative 'product_c'
+require_relative 'product_d'
+
 
 class CoolProductFactory
   puts "Creating the cool, factory"
@@ -20,6 +22,10 @@ class CoolProductFactory
 
   def create_product_C
     instance=CoolProductC.new
+  end
+
+  def create_product_D
+    instance=CoolProductD.new
   end
 
 end

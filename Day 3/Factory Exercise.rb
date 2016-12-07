@@ -30,8 +30,10 @@ class Client
 		@prod_A.do_your_stuff
 		my_prod_B = @factory.create_product_B
 		my_prod_B.do_it
-		@prod_C = @factory.create_product_C
-		@prod_C.perform
+		prod_C = @factory.create_product_C
+		prod_C.perform
+    prod_D = @factory.create_product_D
+    prod_D.make_it_so
 	end
 end
 
