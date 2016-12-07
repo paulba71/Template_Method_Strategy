@@ -5,7 +5,6 @@ require_relative 'product_c'
 class ProductFactory
 
 
-  puts "Creating the factory"
   @@instance=ProductFactory.new
 
   def self.instance

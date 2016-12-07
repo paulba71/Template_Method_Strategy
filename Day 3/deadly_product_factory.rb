@@ -4,11 +4,14 @@ require_relative 'product_c'
 require_relative 'product_d'
 
 class DeadlyProductFactory
-  puts "Creating the deadly, factory"
-  @@instance=DeadlyProductFactory.new
+  #@@instance=DeadlyProductFactory.new
 
-  def self.instance
-    return @@instance
+  #def self.instance
+  #  return @@instance
+  #end
+
+  def initialize
+    puts "Creating deadly factory"
   end
 
   def create_product_A

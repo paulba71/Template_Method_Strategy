@@ -5,11 +5,14 @@ require_relative 'product_d'
 
 
 class CoolProductFactory
-  puts "Creating the cool, factory"
-  @@instance=CoolProductFactory.new
+  #@@instance=CoolProductFactory.new
 
-  def self.instance
-    return @@instance
+  #def self.instance
+  #  return @@instance
+  #end
+
+  def initialize
+    puts "creating cool factory"
   end
 
   def create_product_A
