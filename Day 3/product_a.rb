@@ -1,6 +1,9 @@
 class ProductA
+end
+
+class DeadlyProductA < ProductA
   def do_your_stuff
-    puts "I'm a ProductA, doing my stuff"
+    puts "I am deadly ProductA, and I am flipping deadly"
   end
 end
 

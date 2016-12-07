@@ -5,6 +5,7 @@
 require_relative 'product_factory'
 require_relative 'cool_product_factory'
 require_relative 'uncool_product_factory'
+require_relative 'deadly_product_factory'
 
 class Client
 
@@ -15,6 +16,10 @@ class Client
 
     if(mode == :uncool)
       @factory=UncoolProductFactory.instance
+    end
+
+    if(mode == :deadly)
+      @factory=DeadlyProductFactory.instance
     end
 
 
@@ -35,4 +40,6 @@ end
 my_client = Client.new(:cool)
 my_client.foo
 my_client = Client.new(:uncool)
+my_client.foo
+my_client = Client.new(:deadly)
 my_client.foo
