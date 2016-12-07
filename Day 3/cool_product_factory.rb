@@ -2,25 +2,24 @@ require_relative 'product_a'
 require_relative 'product_b'
 require_relative 'product_c'
 
-class ProductFactory
-
-
-  puts "Creating the factory"
-  @@instance=ProductFactory.new
+class CoolProductFactory
+  puts "Creating the cool, factory"
+  @@instance=CoolProductFactory.new
 
   def self.instance
     return @@instance
   end
 
   def create_product_A
-    instance=ProductA.new
+    instance=CoolProductA.new
   end
 
   def create_product_B
-    instance=ProductB.new
+    instance=CoolProductB.new
   end
 
   def create_product_C
-    instance=ProductC.new
+    instance=CoolProductC.new
   end
+
 end
