@@ -1,6 +1,6 @@
 require_relative 'drink'
 
-class Coffee < Drink
+class Milk < Drink
   def initialize(real_drink)
     @real_drink=real_drink
   end
@@ -14,12 +14,17 @@ class Coffee < Drink
   end
 
   def description
-    @real_drink.description + " + #{@quantity} shot(s) of #{@type} coffee"
+    @real_drink.description + " + #{@quantity} measure(s) of #{@type} milk"
   end
 
   def cost
     @real_drink.cost +  (@quantity*@cost)
+  end
 
+  def heat_milk
+    puts "Heating milk"
+    sleep(2)
+    puts "milk is heated now"
   end
 
   def declare
