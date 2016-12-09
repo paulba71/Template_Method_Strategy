@@ -7,6 +7,8 @@ class Animal
     @position=Point.new(0,0)
   end
 
+  attr_accessor :name
+
   def print_position
     @position.print_point
     puts""

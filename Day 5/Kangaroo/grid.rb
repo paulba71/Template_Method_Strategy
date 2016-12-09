@@ -1,15 +1,15 @@
 require_relative "Point"
 
-#require 'singleton'
+require 'singleton'
 
 class Grid
 
-  #using Singleton
+  include Singleton
 
   attr_reader :home_position
   @size=0
 
-  def initialize(size)
+  def init(size)
     @size=size
     @home_position=Point.new(size-1,size-1)
   end
