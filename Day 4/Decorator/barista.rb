@@ -42,8 +42,6 @@ class Barista
     puts "Sugar is #{sugar.type}"
     puts "Syrup is #{syrup.type}"
     puts "Nip is #{nip.type}"
-
-
   end
 end
 

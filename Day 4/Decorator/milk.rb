@@ -8,6 +8,7 @@ class Milk < Drink
   @type = ""
   @qualtity=0
   @cost=0
+  @milk_temp=:cold # Local state
 
   def type
     @type
@@ -24,7 +25,8 @@ class Milk < Drink
   def heat_milk
     puts "Heating milk"
     sleep(2)
-    puts "milk is heated now"
+    puts "milk is heated"
+    @milk_temp=:hot
   end
 
   def declare
