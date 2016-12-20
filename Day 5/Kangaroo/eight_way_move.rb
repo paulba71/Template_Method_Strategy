@@ -1,4 +1,4 @@
-require_relative "Move"
+require_relative 'Move'
 
 class EightWayMove < Move
 
@@ -15,7 +15,7 @@ class EightWayMove < Move
     p=@die.convert_roll_to_move(direction)
   end
 
-  def get_move_count
+  def get_roll_count
     @die.get_roll_count
   end
 end

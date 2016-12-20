@@ -1,3 +1,5 @@
+require_relative 'Move'
+
 class DiagonalMove  < Move
 
   def initialize (grid)
@@ -13,7 +15,7 @@ class DiagonalMove  < Move
     p=@die.convert_roll_to_move(direction)
   end
 
-  def get_move_count
+  def get_roll_count
     @die.get_roll_count
   end
 end

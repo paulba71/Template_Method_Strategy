@@ -9,12 +9,14 @@ class AnimalFactory
 
   def create(number_to_create)
     number_to_create.times do
+      num=0
       characterMode=rand(3)
       case characterMode
         when 0
           # Create a Kangaroo
           newone=Kangaroo.new
           @characters << newone
+
         when 1
           newone=ZagZagaroo.new
           @characters << newone
@@ -31,7 +33,7 @@ class AnimalFactory
   def print_out
     count=0
     @characters.each do |element|
-      puts "Element: #{count} is a #{element.class}"
+      puts "Animal: #{count} is a #{element.class}"
       count+=1
     end
   end
