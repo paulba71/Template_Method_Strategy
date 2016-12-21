@@ -14,7 +14,7 @@ class MoveMaker
       print '.'
       sleep sleep_break
       @players.each { |player|
-        if(!player.is_home?)
+        if !player.is_home?
           player.make_move
           if(player.is_home?)
             @players_home += 1
