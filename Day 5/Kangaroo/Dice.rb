@@ -1,5 +1,5 @@
 require_relative 'DieHistory'
-require_relative "Point"
+require_relative 'Point'
 
 class DieMode
   FOUR=1
