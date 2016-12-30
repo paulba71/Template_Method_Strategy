@@ -1,34 +1,41 @@
 require_relative 'Kangaroo'
 require_relative 'ZagZagaroo'
 require_relative 'Diagaroo'
+require_relative 'special_prize_checker'
 
 class AnimalFactory
   def initialize
     @characters=[]
+    #@prize_checker=SpecialPrizeChecker.new
   end
 
   def create(number_to_create)
     num=0
     number_to_create.times do
-      newone=nil
-      characterMode=rand(3)
-      case characterMode
+      new_one=nil
+      character_mode=rand(3)
+      case character_mode
         when 0
           # Create a Kangaroo
-          newone=Kangaroo.new
+          new_one=Kangaroo.new
 
 
         when 1
-          newone=ZagZagaroo.new
+          # Create a Zagzagaroo
+          new_one=ZagZagaroo.new
 
 
         when 2
-          newone=Diagaroo.new
+          # Create a Diagaroo
+          new_one=Diagaroo.new
 
 
       end
-      newone.name = "Player"+num.to_s
-      @characters << newone
+      new_one.name = 'Player'+num.to_s
+      prize_checker=SpecialPrizeChecker.new
+      prize_checker.get_cell.print_point
+      new_one.add_observer(prize_checker)
+      @characters << new_one
       num+=1
     end
     @characters

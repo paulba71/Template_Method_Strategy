@@ -1,21 +1,25 @@
 require_relative 'Point'
 require_relative 'Grid'
+require_relative 'local_observable'
 
 
 class Animal
+
+  include LocalObservable
 
   @valid_move_count
 
   attr_accessor :name
 
   def initialize
+    super()
     @position=Point.new(0,0)
     @valid_move_count=0
   end
 
   def print_position
     @position.print_point
-    puts ""
+    puts ''
   end
 
   def move_to(p)
@@ -43,6 +47,7 @@ class Animal
     new_position=@move_strategy.get_valid_move (@position)
     move_to(new_position)
     @valid_move_count+=1
+    notify_observers
     new_position
   end
 

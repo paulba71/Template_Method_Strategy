@@ -1,4 +1,5 @@
-require_relative "Point"
+require_relative 'Point'
+require_relative 'special_prize_checker'
 
 require 'singleton'
 
@@ -32,6 +33,10 @@ class Grid
     else
       false
     end
+  end
+
+  def get_size
+    @size
   end
 
 end #class

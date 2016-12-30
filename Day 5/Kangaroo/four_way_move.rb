@@ -1,4 +1,4 @@
-require_relative "Move"
+require_relative 'Move'
 
 class FourWayMove < Move
 

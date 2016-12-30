@@ -14,7 +14,7 @@ class GameManager
 
   def run
     # Ask for a grid size
-    print 'Welcome to the races: Please specify the size of the game (0..100): '
+    print "Welcome to the races: Please specify the size of the game (0..100): "
     size=gets()
     puts "Grid will be #{size.to_i} by #{size.to_i}"
     @grid.init(size.to_i)
