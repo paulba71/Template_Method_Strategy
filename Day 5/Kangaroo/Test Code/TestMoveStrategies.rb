@@ -3,12 +3,14 @@ require_relative '../Kangaroo'
 require_relative '../ZagZagaroo'
 require_relative '../diagaroo'
 require_relative '../Point'
+require_relative '../Fastaroo'
 
 def test_single_die_rolls
   Grid.instance.init(10)
   kangaroo=Kangaroo.new
   zagzagaroo=ZagZagaroo.new
   diagaroo=Diagaroo.new
+  fastaroo=Fastaroo.new
 
   p=kangaroo.make_move
   moves=kangaroo.get_die_rolls
@@ -20,6 +22,10 @@ def test_single_die_rolls
 
   p=diagaroo.make_move
   moves=diagaroo.get_die_rolls
+  puts "Got to #{p.x},#{p.y} in #{moves} rolls of the die"
+
+  p=fastaroo.make_move
+  moves=fastaroo.get_die_rolls
   puts "Got to #{p.x},#{p.y} in #{moves} rolls of the die"
 end
 
@@ -54,6 +60,10 @@ def test_multiple_times_from_start (number_of_times)
     diagaroo=Diagaroo.new
     p=diagaroo.make_move
     test_cell_is_correct diagaroo, p, [ Point.new(1,1) ]
+
+    fastaroo=Fastaroo.new
+    p=fastaroo.make_move
+    test_cell_is_correct fastaroo, p, [ Point.new(0,1), Point.new(1,0) ]
   end
 end
 
@@ -75,6 +85,11 @@ def test_multiple_times_from_five_five (number_of_times)
     diagaroo.move_to(Point.new(5,5))
     p=diagaroo.make_move
     test_cell_is_correct diagaroo, p, [ Point.new(4,4), Point.new(4,6), Point.new(6,6), Point.new(6,4) ]
+
+    fastaroo=Fastaroo.new
+    fastaroo.move_to(Point.new(5,5))
+    p=fastaroo.make_move
+    test_cell_is_correct fastaroo, p, [ Point.new(6,5), Point.new(5,6)  ]
   end
   # Check that the exception raising works.
   # test_cell_is_correct diagaroo,p, [Point.new(20,20)]

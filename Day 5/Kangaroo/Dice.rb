@@ -5,6 +5,7 @@ class DieMode
   FOUR=1
   EIGHT=2
   DIAGONAL=3
+  FAST=4
 end
 
 class Direction
@@ -36,6 +37,9 @@ class Die
     end
     if (@mode==DieMode::DIAGONAL)
       num=rand(5..8)
+    end
+    if(@mode==DieMode::FAST)
+      num=1+Random.rand(2)
     end
     @log.add_roll(num) if (num!=nil)
     return num

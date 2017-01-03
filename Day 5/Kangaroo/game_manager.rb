@@ -20,7 +20,7 @@ class GameManager
     @grid.init(size.to_i)
     # Use a factory to create an animal
     factory=AnimalFactory.new
-    animals=factory.create(8)
+    animals=factory.create(10)
     puts 'Game is starting with the following aninmals'
     factory.print_out
     # loop until all animals get home - using the move_manager
