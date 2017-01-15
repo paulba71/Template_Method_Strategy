@@ -35,6 +35,9 @@ class AnimalFactory
           # Create a Fastaroo
           new_one=Fastaroo.new
 
+        else
+          puts 'Invalid animal. Cant create'
+
 
       end
       new_one.name = 'Player'+num.to_s

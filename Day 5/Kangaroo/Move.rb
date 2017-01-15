@@ -17,9 +17,9 @@ class Move
 
   def get_move(starting_point)
     direction=get_direction
-    p=convert_to_coordinates(direction,starting_point)
+    p=convert_to_coordinates(direction)
     new_position=Point.new(starting_point.x + p.x, starting_point.y + p.y)
-    return new_position
+    new_position
   end
 
 end

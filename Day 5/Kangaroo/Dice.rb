@@ -42,7 +42,7 @@ class Die
       num=1+Random.rand(2)
     end
     @log.add_roll(num) if (num!=nil)
-    return num
+    num
   end
 
   def print_direction (direction)
@@ -63,6 +63,8 @@ class Die
         print('WEST ')
       when Direction::NORTHWEST
         print('NORTHWEST ')
+      else
+        print('unknown direction')
     end
   end
 
@@ -89,8 +91,10 @@ class Die
       when Direction::NORTHWEST
         p.x=p.x-1
         p.y=p.y+1
+      else
+        puts 'invalid direction - cant convert to move'
     end
-    return p
+    p
   end
 
   def get_roll_count
@@ -101,7 +105,7 @@ class Die
     @log.print_history
   end
 
-  def print_summary_Log
+  def print_summary_log
     @log.print_history_summary
   end
 

@@ -16,7 +16,7 @@ class MoveMaker
       @players.each { |player|
         if !player.is_home?
           player.make_move
-          if(player.is_home?)
+          if player.is_home?
             @players_home += 1
             puts ''
             puts "#{player.name} - a #{player.class} - made it home in position #{@players_home} after #{move_count} moves"

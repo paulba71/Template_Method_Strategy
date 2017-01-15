@@ -8,11 +8,11 @@ class DiagonalMove  < Move
   end
 
   def get_direction
-    direction=@die.roll_die
+    @die.roll_die
   end
 
-  def convert_to_coordinates(direction, starting_point)
-    p=@die.convert_roll_to_move(direction)
+  def convert_to_coordinates(direction)
+    @die.convert_roll_to_move(direction)
   end
 
   def get_roll_count

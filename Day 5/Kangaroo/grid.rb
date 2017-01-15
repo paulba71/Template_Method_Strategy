@@ -24,11 +24,11 @@ class Grid
       return false
     end
 
-    return true
+    true
   end
 
   def is_point_at_end? (p)
-    if (p.x == @size-1 && p.y == @size-1)
+    if p.x == @size-1 && p.y == @size-1
       true
     else
       false
